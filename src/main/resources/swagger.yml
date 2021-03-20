@@ -15,7 +15,26 @@ paths:
       description: Método para ralizar a criação de um novo atendente
       operationId: create
       requestBody:
-        description: Modelo de requisição necessaria para criar novo atendente
+        description: Modelo de requisição necessaria para criar um novo atendente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriarAtendenteRequest'
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtendenteResponse'
+
+  /medicos:
+    post:
+      summary: Cria um novo Medico
+      description: Método para ralizar a criação de um novo medico
+      operationId: create
+      requestBody:
+        description: Modelo de requisição necessaria para criar um novo medico
         content:
           application/json:
             schema:
@@ -44,7 +63,7 @@ components:
           type: string
         salario:
           type: number
-        fucao:
+        funcao:
           type: String
         turno:
           type: integer
@@ -83,3 +102,39 @@ components:
         dataAtualizacao:
           type: string
           format: date
+
+    CriarMedicoRequest:
+      type: object
+      properties:
+        carteiraDeTrabalho:
+          type: integer
+        dataContratacao:
+          type: string
+          format: date
+        nome:
+          type: string
+        cpf:
+          type: string
+        salario:
+          type: number
+        fucao:
+          type: String
+        crm:
+          type: integer
+        especialidade:
+          ref: '#/components/schemas/Especialidade'
+      required:
+        - carteiraDeTrabalho
+        - dataContratacao
+        - nome
+        - cpf
+        - salario
+        - fucao
+        - turno
+
+    Especialidade:
+      type: string
+      enum:
+        - clinicoGeral
+        - cardiologista
+        - pediatra

@@ -16,5 +16,5 @@ public abstract class Funcionario extends EntidadeBase {
     protected String nome;
     protected String cpf;
     protected BigDecimal salario;
-    protected String fucao;
+    protected String funcao;
 }

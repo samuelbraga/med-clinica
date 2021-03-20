@@ -17,6 +17,6 @@ public class CriarAtendenteDTO {
     private String nome;
     private String cpf;
     private BigDecimal salario;
-    private String fucao;
+    private String funcao;
     private Integer turno;
 }
