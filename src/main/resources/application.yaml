@@ -1,0 +1,45 @@
+server:
+  port: 8080
+  contextPath: /api/v1
+  compression:
+    enabled: true
+    min-response-size: 1024
+    mime-types: application/json
+
+spring:
+  application:
+    name: "Clinica API"
+  datasource:
+    driver-class-name: "org.h2.Driver"
+    url: "jdbc:h2:mem:clinica"
+    username: "root"
+    password: "root"
+
+  h2:
+    console:
+      enabled: false
+
+  jpa:
+    database-platform: "org.hibernate.dialect.H2Dialect"
+    hibernate:
+      ddl-auto: "update"
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    enabled-by-default: false
+  endpoint:
+    health:
+      enabled: true
+      show-details: "always"
+      group:
+        liveness:
+          include: "livenessState"
+        readiness:
+          include: "readinessState, db, diskSpace"
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true

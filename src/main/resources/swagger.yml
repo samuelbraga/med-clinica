@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  title: Clinica API
+  description: API para manipulação de operações relacionadas a Clinica
+  version: 0.1.1
+
+servers:
+  - url: http://localhost.com/api/v1
+    description: Endereço de desenvolvimento
+
+paths:
+  /atendentes:
+    post:
+      summary: Cria um novo atendente
+      description: Método para ralizar a criação de um novo atendente
+      operationId: create
+      requestBody:
+        description: Modelo de requisição necessaria para criar novo atendente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriarAtendenteRequest'
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtendenteResponse'
+
+components:
+  schemas:
+    CriarAtendenteRequest:
+      type: object
+      properties:
+        carteiraDeTrabalho:
+          type: integer
+        dataContratacao:
+          type: string
+          format: date
+        nome:
+          type: string
+        cpf:
+          type: string
+        salario:
+          type: number
+        fucao:
+          type: String
+        turno:
+          type: integer
+      required:
+        - carteiraDeTrabalho
+        - dataContratacao
+        - nome
+        - cpf
+        - salario
+        - fucao
+        - turno
+
+    AtendenteResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        carteiraDeTrabalho:
+          type: integer
+        dataContratacao:
+          type: string
+          format: date
+        nome:
+          type: string
+        cpf:
+          type: string
+        salario:
+          type: number
+        fucao:
+          type: String
+        turno:
+          type: integer
+        dataCriacao:
+          type: string
+          format: date
+        dataAtualizacao:
+          type: string
+          format: date
