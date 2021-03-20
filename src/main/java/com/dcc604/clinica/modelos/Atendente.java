@@ -17,7 +17,7 @@ public class Atendente extends Funcionario {
         this.carteiraDeTrabalho = criarAtendenteDTO.getCarteiraDeTrabalho();
         this.dataContratacao = criarAtendenteDTO.getDataContratacao();
         this.nome = criarAtendenteDTO.getNome();
-        this.cpf = criarAtendenteDTO.getNome();
+        this.cpf = criarAtendenteDTO.getCpf();
         this.salario = criarAtendenteDTO.getSalario();
         this.funcao = criarAtendenteDTO.getFuncao();
         this.turno = criarAtendenteDTO.getTurno();

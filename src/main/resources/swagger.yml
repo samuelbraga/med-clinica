@@ -22,7 +22,7 @@ paths:
               $ref: '#/components/schemas/CriarAtendenteRequest'
       responses:
         '201':
-          description: OK
+          description: CREATED
           content:
             application/json:
               schema:
@@ -38,14 +38,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CriarAtendenteRequest'
+              $ref: '#/components/schemas/CriarMedicoRequest'
       responses:
         '201':
-          description: OK
+          description: CREATED
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AtendenteResponse'
+                $ref: '#/components/schemas/MedicoResponse'
 
 components:
   schemas:
@@ -73,7 +73,7 @@ components:
         - nome
         - cpf
         - salario
-        - fucao
+        - funcao
         - turno
 
     AtendenteResponse:
@@ -92,7 +92,7 @@ components:
           type: string
         salario:
           type: number
-        fucao:
+        funcao:
           type: String
         turno:
           type: integer
@@ -117,20 +117,49 @@ components:
           type: string
         salario:
           type: number
-        fucao:
+        funcao:
           type: String
         crm:
           type: integer
         especialidade:
-          ref: '#/components/schemas/Especialidade'
+          $ref: '#/components/schemas/Especialidade'
       required:
         - carteiraDeTrabalho
         - dataContratacao
         - nome
         - cpf
         - salario
-        - fucao
+        - funcao
         - turno
+
+    MedicoResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        carteiraDeTrabalho:
+          type: integer
+        dataContratacao:
+          type: string
+          format: date
+        nome:
+          type: string
+        cpf:
+          type: string
+        salario:
+          type: number
+        funcao:
+          type: String
+        crm:
+          type: integer
+        especialidade:
+          $ref: '#/components/schemas/Especialidade'
+        dataCriacao:
+          type: string
+          format: date
+        dataAtualizacao:
+          type: string
+          format: date
 
     Especialidade:
       type: string

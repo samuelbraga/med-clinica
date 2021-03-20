@@ -11,4 +11,3 @@ public class ErrorBodyValidationDTO {
     private String field;
     private String message;
 }
-

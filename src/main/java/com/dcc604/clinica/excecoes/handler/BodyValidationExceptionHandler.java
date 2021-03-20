@@ -1,6 +1,8 @@
 package com.dcc604.clinica.excecoes.handler;
 
 import com.dcc604.clinica.excecoes.handler.dtos.ErrorBodyValidationDTO;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -11,9 +13,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @RestControllerAdvice
 @RequiredArgsConstructor
 public class BodyValidationExceptionHandler {
@@ -23,27 +22,18 @@ public class BodyValidationExceptionHandler {
     public ResponseEntity<List<ErrorBodyValidationDTO>> handle(
         MethodArgumentNotValidException methodArgumentNotValidException
     ) {
-        List<FieldError> fieldErrors = methodArgumentNotValidException
-            .getBindingResult()
-            .getFieldErrors();
+        List<FieldError> fieldErrors = methodArgumentNotValidException.getBindingResult().getFieldErrors();
 
         List<ErrorBodyValidationDTO> listErrorBodyValidationDTO = fieldErrors
             .stream()
             .map(
                 fieldError -> {
-                    String message =
-                        this.messageSource.getMessage(
-                            fieldError,
-                            LocaleContextHolder.getLocale()
-                        );
+                    String message = this.messageSource.getMessage(fieldError, LocaleContextHolder.getLocale());
                     return new ErrorBodyValidationDTO(fieldError.getField(), message);
                 }
             )
             .collect(Collectors.toList());
 
-        return new ResponseEntity<>(
-            listErrorBodyValidationDTO,
-            HttpStatus.BAD_REQUEST
-        );
+        return new ResponseEntity<>(listErrorBodyValidationDTO, HttpStatus.BAD_REQUEST);
     }
 }

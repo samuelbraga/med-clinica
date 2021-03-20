@@ -1,4 +1,4 @@
-package com.dcc604.clinica.mapeamento;
+package com.dcc604.clinica.mapeamento.atendente;
 
 import com.dcc604.clinica.modelos.Atendente;
 import io.swagger.model.AtendenteResponse;
