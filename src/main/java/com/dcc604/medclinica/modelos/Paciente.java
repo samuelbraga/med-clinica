@@ -12,10 +12,6 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Paciente extends EntidadeBase {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Integer id;
-
     private String cpf;
     private String nome;
     private LocalDate dataNascimento;

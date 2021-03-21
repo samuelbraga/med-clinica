@@ -8,12 +8,8 @@ import com.dcc604.medclinica.mapeamento.paciente.PacienteResponseMapeador;
 import com.dcc604.medclinica.modelos.Paciente;
 import com.dcc604.medclinica.servicos.ServicoBase;
 import io.swagger.api.PacienteApi;
-import io.swagger.model.AtendenteResponse;
 import io.swagger.model.CriarPacienteRequest;
 import io.swagger.model.PacienteResponse;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
-import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,7 +27,7 @@ public class ControladorPaciente implements PacienteApi {
 
     private final CriarPacienteDtoMapeador requestMapeador;
     private final PacienteResponseMapeador responseMapeador;
-
+    
     @Override
     public ResponseEntity<PacienteResponse> criar(
         @RequestHeader(value = HEADER_ATEMDETE_ID) Integer xAtendenteId,
