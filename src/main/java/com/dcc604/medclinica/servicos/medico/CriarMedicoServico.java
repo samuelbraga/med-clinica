@@ -1,4 +1,4 @@
-package com.dcc604.medclinica.servicos.medicos;
+package com.dcc604.medclinica.servicos.medico;
 
 import static com.dcc604.medclinica.Constantes.ERRO_MEDICO_EXISTENTE;
 

@@ -1,4 +1,4 @@
-package com.dcc604.medclinica.servicos.atendentes;
+package com.dcc604.medclinica.servicos.atendente;
 
 import static com.dcc604.medclinica.Constantes.ERRO_ATENDENTE_EXISTENTE;
 
