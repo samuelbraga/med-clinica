@@ -199,5 +199,7 @@ components:
     AgendaResponse:
       type: object
       properties:
-        medicoId:
+        id:
           type: integer
+        medico:
+          $ref: '#/components/schemas/MedicoResponse'

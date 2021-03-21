@@ -3,6 +3,7 @@ package com.dcc604.medclinica.modelos;
 import com.dcc604.medclinica.dtos.CriarMedicoDTO;
 import io.swagger.model.Especialidade;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import lombok.*;
 
 @Entity
@@ -14,6 +15,9 @@ import lombok.*;
 public class Medico extends Funcionario {
     private Integer crm;
     private Especialidade especialidade;
+
+    @OneToOne
+    private Agenda agenda;
 
     public Medico(CriarMedicoDTO criarMedicoDTO) {
         this.carteiraDeTrabalho = criarMedicoDTO.getCarteiraDeTrabalho();
