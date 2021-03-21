@@ -5,7 +5,7 @@ import com.dcc604.medclinica.mapeamento.atendente.AtendenteResponseMapeador;
 import com.dcc604.medclinica.mapeamento.atendente.CriarAtendenteDtoMapeador;
 import com.dcc604.medclinica.modelos.Atendente;
 import com.dcc604.medclinica.servicos.ServicoBase;
-import io.swagger.api.AtendentesApi;
+import io.swagger.api.AtendenteApi;
 import io.swagger.model.AtendenteResponse;
 import io.swagger.model.CriarAtendenteRequest;
 import javax.validation.Valid;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class ControladorAtendente implements AtendentesApi {
+public class ControladorAtendente implements AtendenteApi {
     @Qualifier("criarAtendenteServico")
     private final ServicoBase<Atendente, CriarAtendenteDTO> criarAtendenteService;
 

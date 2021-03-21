@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Clinica API
-  description: API para manipulação de operações relacionadas a Clinica
+  title: Med Clinica API
+  description: API para manipulação de operações relacionadas a Med Clinica
   version: 0.1.1
 
 servers:
@@ -9,7 +9,7 @@ servers:
     description: Endereço de desenvolvimento
 
 paths:
-  /atendentes:
+  /atendente:
     post:
       summary: Cria um novo atendente
       description: Método para ralizar a criação de um novo atendente
@@ -28,7 +28,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AtendenteResponse'
 
-  /medicos:
+  /medico:
     post:
       summary: Cria um novo Medico
       description: Método para ralizar a criação de um novo medico
@@ -46,6 +46,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MedicoResponse'
+  /agenda:
+    post:
+      summary: Cria uma nova agenda
+      description: Método para ralizar a criação de uma nova agenda para um medico
+      operationId: create
+      requestBody:
+        description: Modelo de requisição necessaria para criar uma nova agenda
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriarAgendaRequest'
+      responses:
+        '201':
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgendaResponse'
+
+
 
 components:
   schemas:
@@ -167,3 +187,17 @@ components:
         - clinicoGeral
         - cardiologista
         - pediatra
+
+    CriarAgendaRequest:
+      type: object
+      properties:
+        medicoId:
+          type: integer
+      required:
+        - medicoId
+
+    AgendaResponse:
+      type: object
+      properties:
+        medicoId:
+          type: integer
