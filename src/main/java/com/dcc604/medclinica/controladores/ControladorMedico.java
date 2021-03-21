@@ -22,12 +22,12 @@ public class ControladorMedico implements MedicoApi {
     @Qualifier("criarMedicoServico")
     private final ServicoBase<Medico, CriarMedicoDTO> criarMedicoService;
 
-    private final CriarMedicoDtoMapeador requestMapper;
+    private final CriarMedicoDtoMapeador requestMapeador;
     private final MedicoResponseMapeador responseMapeador;
 
     @Override
-    public ResponseEntity<MedicoResponse> create(@Valid @RequestBody CriarMedicoRequest body) {
-        CriarMedicoDTO criarMedicoDTO = requestMapper.fromCriarMedicoRequest(body);
+    public ResponseEntity<MedicoResponse> criar(@Valid @RequestBody CriarMedicoRequest body) {
+        CriarMedicoDTO criarMedicoDTO = requestMapeador.fromCriarMedicoRequest(body);
         Medico medico = criarMedicoService.execute(criarMedicoDTO);
         MedicoResponse medicoResponse = responseMapeador.fromMedico(medico);
         return new ResponseEntity<>(medicoResponse, HttpStatus.CREATED);

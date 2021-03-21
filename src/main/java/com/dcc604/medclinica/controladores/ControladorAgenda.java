@@ -22,12 +22,12 @@ public class ControladorAgenda implements AgendaApi {
     @Qualifier("criarAgendaService")
     private final ServicoBase<Agenda, CriarAgendaDTO> criarAgendaService;
 
-    private final CriarAgendaDtoMapeador requestMapper;
+    private final CriarAgendaDtoMapeador requestMapeador;
     private final AgendaResponseMapeador responseMapeador;
 
     @Override
-    public ResponseEntity<AgendaResponse> create(@Valid @RequestBody CriarAgendaRequest body) {
-        CriarAgendaDTO criarAgendaDTO = requestMapper.fromCriarAgendaRequest(body);
+    public ResponseEntity<AgendaResponse> criar(@Valid @RequestBody CriarAgendaRequest body) {
+        CriarAgendaDTO criarAgendaDTO = requestMapeador.fromCriarAgendaRequest(body);
         Agenda agenda = criarAgendaService.execute(criarAgendaDTO);
         AgendaResponse response = responseMapeador.fromAgenda(agenda);
         return new ResponseEntity<>(response, HttpStatus.CREATED);

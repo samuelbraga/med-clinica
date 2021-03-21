@@ -12,9 +12,7 @@ public abstract class Funcionario extends EntidadeBase {
     @Column(unique = true)
     protected Integer carteiraDeTrabalho;
 
-    @Column(unique = true)
     protected String cpf;
-
     protected LocalDate dataContratacao;
     protected String nome;
     protected BigDecimal salario;

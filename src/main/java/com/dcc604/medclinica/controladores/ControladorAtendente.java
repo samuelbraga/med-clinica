@@ -26,7 +26,7 @@ public class ControladorAtendente implements AtendenteApi {
     private final AtendenteResponseMapeador responseMapeador;
 
     @Override
-    public ResponseEntity<AtendenteResponse> create(@Valid @RequestBody CriarAtendenteRequest body) {
+    public ResponseEntity<AtendenteResponse> criar(@Valid @RequestBody CriarAtendenteRequest body) {
         CriarAtendenteDTO atendenteDTO = requestMapeador.fromCriarAtendentesRequest(body);
         Atendente atendente = criarAtendenteService.execute(atendenteDTO);
         AtendenteResponse atendenteResponse = responseMapeador.fromAtendente(atendente);
