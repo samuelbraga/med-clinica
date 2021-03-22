@@ -27,7 +27,7 @@ public class ControladorPaciente implements PacienteApi {
 
     private final CriarPacienteDtoMapeador requestMapeador;
     private final PacienteResponseMapeador responseMapeador;
-    
+
     @Override
     public ResponseEntity<PacienteResponse> criar(
         @RequestHeader(value = HEADER_ATEMDETE_ID) Integer xAtendenteId,
