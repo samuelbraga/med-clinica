@@ -12,6 +12,11 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Setup Maven Action
+        uses: s4u/setup-maven-action@v1.3.1
+        with:
+          java-version: 11
+          maven-version: 3.8.1
       - name: Verify maven dependecies
         run: mvn verify
       - name: Unit tests
