@@ -23,3 +23,10 @@ jobs:
         run: mvn test
       - name: Build
         run: mvn package
+      - name: copy file
+      - uses: actions/checkout@master
+      - name: copy file
+        uses: canastro/copy-file-action@master
+        with:
+          source: "."
+          target: "/var/www/med-clinica/"
