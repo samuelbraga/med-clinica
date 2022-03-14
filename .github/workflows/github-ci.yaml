@@ -24,8 +24,6 @@ jobs:
       - name: Build
         run: mvn package
       - name: copy file
-      - uses: actions/checkout@master
-      - name: copy file
         uses: canastro/copy-file-action@master
         with:
           source: "."
