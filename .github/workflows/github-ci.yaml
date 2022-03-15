@@ -23,6 +23,12 @@ jobs:
         run: mvn test
       - name: Build
         run: mvn package
+      - name: Display the path
+        run: ls
+        shell: bash
+      - name: Display the path
+        run: pwd
+        shell: bash
       - name: copy file
         uses: canastro/copy-file-action@master
         with:
