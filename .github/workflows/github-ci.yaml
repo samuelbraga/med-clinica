@@ -26,3 +26,8 @@ jobs:
       - name: Copy artefact
         run: cp -r * /var/www/med-clinica
         shell: bash
+      - name: Deploy application
+        run: |
+          cd /var/www/med-clinica
+          docker-compose up -d
+        shell: bash
