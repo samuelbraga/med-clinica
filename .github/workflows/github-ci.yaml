@@ -24,5 +24,5 @@ jobs:
       - name: Build
         run: mvn package
       - name: Copy artefact
-        run: cp * /var/www/med-clinica
+        run: cp -r * /var/www/med-clinica
         shell: bash
