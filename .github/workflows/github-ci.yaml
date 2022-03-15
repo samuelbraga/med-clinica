@@ -29,8 +29,8 @@ jobs:
       - name: Display the path
         run: pwd
         shell: bash
-      - name: copy file
-        uses: canastro/copy-file-action@master
+      - name: Copy folder content recursively to remote
+        uses: garygrossgarten/github-action-scp@release
         with:
-          source: "*"
-          target: "/var/www/med-clinica/"
+          local: "*""
+          remote: "/var/www/med-clinica"
