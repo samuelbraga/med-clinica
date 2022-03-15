@@ -23,14 +23,6 @@ jobs:
         run: mvn test
       - name: Build
         run: mvn package
-      - name: Display the path
-        run: ls
+      - name: Copy artefact
+        run: cp * /var/www/med-clinica
         shell: bash
-      - name: Display the path
-        run: pwd
-        shell: bash
-      - name: Copy folder content recursively to remote
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: "*"
-          remote: "/var/www/med-clinica"
