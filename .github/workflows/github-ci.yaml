@@ -32,5 +32,5 @@ jobs:
       - name: copy file
         uses: canastro/copy-file-action@master
         with:
-          source: "."
+          source: "*"
           target: "/var/www/med-clinica/"
